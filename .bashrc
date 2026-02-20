@@ -50,5 +50,12 @@ gu() {
     git switch "$1"
     git reset --hard "origin/$1"
 }
+me() {
+    git fetch origin && git merge "origin/$1"
+}
+
+alias gitlistw="git diff --name-only HEAD | paste -sd "," - | clip"
+alias gitlistl="git diff --name-only HEAD | paste -sd "," - | xclip -selection clipboard"
+
 export BAT_THEME="GitHub"
 xmodmap ~/.Xmodmap
